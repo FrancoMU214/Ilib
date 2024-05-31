@@ -354,3 +354,90 @@ La clase Users se utiliza en diversas partes del sistema para:
 2. Consulta de información: Recuperar datos específicos del usuario para diversos propósitos, como contacto o gestión de sanciones.
 3. Implementación de sanciones: Administrar y registrar las sanciones impuestas a los usuarios, asegurando que se mantenga un registro adecuado de las mismas.
 
+
+# Clase Utils
+La clase Utils en tu paquete com.mycompany.utils es un conjunto de herramientas útiles para realizar diversas operaciones, como validaciones, manejo de fechas, y envío de correos electrónicos. Aquí te explico cada método y su función:
+
+Métodos
+
+•	isNumeric(String strNum): Verifica si una cadena es numérica. Retorna true si la cadena puede ser convertida a un número entero, de lo contrario retorna false. Es útil para validaciones de entrada antes 
+de realizar operaciones que requieran valores numéricos.
+
+•	getFechaActual(): Retorna la fecha actual en el formato dd-MM-yyyy. Utiliza SimpleDateFormat para formatear la fecha actual, lo cual es útil para registros o cualquier función que requiera la fecha del día.
+
+•	diferenciasDeFechas(Date fechaInicial, Date fechaFinal): Calcula la diferencia en días entre dos fechas. Ambas fechas se convierten a medianoche para asegurar que la diferencia sea calculada en términos completos de días. Retorna el número de días entre las dos fechas.
+
+•	stringToDate(String fecha): Convierte una cadena en formato dd-MM-yyyy a un objeto java.util.Date. Es útil cuando se necesitan realizar operaciones con fechas que se reciben como cadenas de texto.
+
+•	sendEmail(): Envía un correo electrónico utilizando la configuración SMTP de Gmail. Configura las propiedades necesarias para la conexión, autentica usando un nombre de usuario y contraseña, y luego construye y envía un mensaje de correo electrónico. También maneja errores de autenticación y otros problemas de mensajería, informando al usuario mediante cuadros de diálogo.
+Consideraciones de Diseño
+
+•	Separación de Responsabilidades: Cada método tiene una responsabilidad clara y definida, lo que hace que la clase sea un recurso reutilizable en diferentes partes de la aplicación.
+
+•	Manejo de Excepciones: Los métodos que involucran formatos y fechas manejan las excepciones internamente, lo que evita que la aplicación falle abruptamente y permite una mayor robustez.
+
+Uso Típico
+•	Validaciones: Antes de realizar operaciones que requieran entradas numéricas, isNumeric puede ser utilizado para validar las entradas del usuario.
+
+•	Trabajo con Fechas: Cuando se necesita registrar la fecha actual o calcular diferencias entre fechas, los métodos getFechaActual, diferenciasDeFechas, y stringToDate facilitan estas tareas.
+
+•	Comunicación: Para enviar notificaciones o información a través de correo electrónico, sendEmail puede ser integrado en procesos que requieran enviar mensajes a los usuarios.
+
+
+# Clase Pdf
+La clase Pdf en tu paquete com.mycompany.utils es un ejemplo de cómo generar un reporte en formato PDF utilizando la biblioteca PDFBox. Este reporte incluye información sobre un libro prestado y las reglas de la biblioteca asociadas al préstamo. Aquí te explico cómo funciona cada parte del código:
+Generación de PDF
+•	Creación de documento y página: Se inicia con la creación de un objeto PDDocument y se añade una PDPage al documento.
+
+•	Contenido del documento: Utilizando PDPageContentStream, se agrega contenido al documento. Esto incluye texto e ilustraciones como líneas o rectángulos, lo que permite diseñar un documento estructurado y legible.
+
+Detalles específicos del contenido:
+
+•	Encabezado: Se añade un título "Biblioteca Trinity" y un subtítulo "Reporte de Préstamo", utilizando diferentes tamaños de fuente para distinguir las secciones.
+
+•	Información del libro: Se presentan los detalles del libro como el título, autor, categoría, fecha de lanzamiento y cantidad de páginas.
+
+•	Reglas de la biblioteca: Se enumeran varias reglas de la biblioteca, presentadas en una lista que facilita su lectura.
+
+Funcionalidades de escritura y formato:
+•	Márgenes y líneas: Se dibujan líneas para definir márgenes que ayudan a organizar visualmente el contenido dentro de la página.
+•	Manejo de texto: Se emplea beginText() y endText() para escribir bloques de texto, y newLineAtOffset() para posicionar cada línea de texto en la página.
+
+Finalización y guardado:
+•	Cerrar contenido y documento: Se cierra el PDPageContentStream y luego el PDDocument.
+•	Guardar el documento: El documento se guarda en el sistema de archivos con el nombre "loan_report_styled.pdf".
+
+Manejo de excepciones:
+•	Excepciones de entrada/salida: Se capturan y se imprimen en la consola para diagnóstico en caso de errores al crear o guardar el documento.
+
+# Clase Books
+La clase Books es un componente de la interfaz gráfica de usuario (GUI) diseñado para manejar la visualización y gestión de libros en nuestra aplicación. Esta clase extiende de javax.swing.JPanel y está diseñada para integrarse dentro de un sistema más grande, probablemente un gestor de biblioteca.
+
+Constructor y Métodos Iniciales
+En el constructor Books(), inicializamos los componentes del panel, establecemos los estilos y cargamos los libros existentes desde la base de datos.
+
+•	InitStyles(): Configura los estilos iniciales del panel, como el color de texto y estilos específicos de componentes como title y bookSearch.
+
+•	LoadBooks(): Carga los libros desde la base de datos mediante DAOBooksImpl y los muestra en jTable1. Utiliza un modelo de tabla (DefaultTableModel) para añadir filas que representan libros.
+
+Componentes de la Interfaz
+El panel Books contiene varios botones y un campo de texto para la búsqueda, permitiendo interactuar con la lista de libros:
+
+•	Botones (addButton, editButton, deleteButton): Permiten al usuario añadir, editar y eliminar libros. Estos botones están configurados para interactuar con la base de datos a través de DAOBooksImpl.
+
+•	Campo de búsqueda (bookSearch): Permite al usuario introducir un término de búsqueda para filtrar los libros mostrados en la tabla.
+
+Eventos de la Interfaz
+
+•	addButtonActionPerformed: Llama a Dashboard.ShowJPanel(new UpBooks()) para mostrar el panel de añadir un nuevo libro.
+
+•	editButtonActionPerformed: Edita el libro seleccionado en la tabla. Obtiene el ID del libro seleccionado y carga sus detalles para edición.
+
+•	deleteButtonActionPerformed: Elimina los libros seleccionados en la tabla. Utiliza DAOBooksImpl para eliminar los registros en la base de datos y actualiza la tabla.
+
+•	searchButtonActionPerformed: Filtra los libros mostrados en la tabla según el texto introducido en el campo de búsqueda. Actualiza la tabla para mostrar solo los libros que coinciden con la búsqueda.
+
+Consideraciones de Implementación
+1. Interacción con la base de datos: Utiliza DAOBooksImpl para todas las operaciones de la base de datos, asegurando que la lógica de acceso a datos está separada de la lógica de la interfaz de usuario.
+2. Validación de entrada: En bookSearchKeyTyped, se asegura que sólo se puedan introducir caracteres numéricos, ideal para sistemas donde el ID del libro es numérico.
+
