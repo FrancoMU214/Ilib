@@ -216,3 +216,141 @@ Consideraciones Generales
 Uso Típico
 1. Cualquier clase que implemente esta interfaz se encargará de definir cómo se realizan las conexiones a la base de datos, cómo se ejecutan las consultas y cómo se manejan los resultados y los errores.
 2. Esto garantiza que las operaciones relacionadas con los usuarios sean transparentes y eficaces, facilitando la gestión de los mismos dentro de la aplicación.
+
+# CLASES
+# Clase Books
+La clase Books representa el modelo de un libro dentro de nuestra aplicación. Es una parte esencial del sistema, pues almacena y gestiona toda la información relevante sobre los libros. Aquí te detallamos cada uno de los atributos y métodos que incluye:
+
+Atributos
+•	id: Identificador único para cada libro en la base de datos.
+
+•	title: Título del libro.
+
+•	date: Fecha de publicación o adquisición del libro.
+
+•	author: Autor del libro.
+
+•	category: Categoría a la que pertenece el libro (por ejemplo, novela, ciencia ficción, educativo).
+
+•	edit: Edición del libro.
+
+•	lang: Idioma en el que está escrito el libro.
+
+•	pages: Número de páginas del libro.
+
+•	description: Breve descripción o resumen del libro.
+
+•	ejemplares: Número de copias del mismo libro disponibles en la biblioteca.
+
+•	stock: Número total de copias en stock, incluidas las que están prestadas.
+
+•	available: Número de copias disponibles para ser prestadas.
+
+Métodos de Acceso y Modificación (Getters y Setters)
+Cada atributo tiene su correspondiente método set para establecer su valor y método get para obtener su valor. Estos métodos son cruciales para la manipulación y acceso seguro a las propiedades del objeto Books, asegurando que los datos pueden ser actualizados o recuperados según sea necesario. Por ejemplo:
+•	setId(int id): Establece el ID del libro.
+
+•	getTitle(): Devuelve el título del libro.
+
+•	setAuthor(String author): Asigna el nombre del autor del libro.
+
+•	getStock(): Obtiene el stock total de copias del libro.
+
+Consideraciones de Diseño
+2. Encapsulamiento: Todos los atributos son privados, lo que significa que solo pueden ser accedidos y modificados a través de sus métodos getters y setters. Esto ayuda a mantener la integridad de los datos.
+1. Flexibilidad: La clase está diseñada para ser flexible y fácil de integrar con otras partes del sistema, como interfaces de usuario y operaciones de base de datos.
+
+Uso Típico
+Un objeto de la clase Books puede ser utilizado en varias partes de una aplicación de gestión bibliotecaria:
+1. Registro y Actualización: Cuando se añaden nuevos libros al inventario o se actualizan los detalles de los libros existentes.
+2. Consulta: Para recuperar información sobre libros cuando se necesitan para operaciones como préstamos, devoluciones, o búsquedas.
+
+# Clase Lendings
+La clase Lendings es parte crucial de nuestro sistema de gestión de biblioteca, específicamente diseñada para manejar los préstamos de libros. Esta clase facilita la representación y manejo de la información relacionada con los préstamos. A continuación, te describo en detalle cada uno de los atributos y métodos:
+Atributos
+
+•	id: El identificador único para cada préstamo en la base de datos.
+
+•	user_id: El identificador del usuario que realiza el préstamo.
+
+•	book_id: El identificador del libro que se presta.
+
+•	date_out: La fecha en la que el libro fue prestado.
+
+•	date_return: La fecha en la que el libro fue o será devuelto.
+
+Métodos de Acceso y Modificación (Getters y Setters)
+Cada atributo de la clase tiene métodos set para establecer su valor y métodos get para recuperar su valor, permitiendo una manipulación segura de los datos del préstamo:
+
+•	setId(int id), getId(): Establece y recupera el ID del préstamo.
+
+•	setUser_id(int user_id), getUser_id(): Establece y recupera el ID del usuario asociado al préstamo.
+
+•	setBook_id(int book_id), getBook_id(): Establece y recupera el ID del libro prestado.
+
+•	setDate_out(String date_out), getDate_out(): Establece y recupera la fecha de salida del préstamo.
+
+•	setDate_return(String date_return), getDate_return(): Establece y recupera la fecha de retorno del préstamo.
+
+Consideraciones de Diseño
+
+•	Encapsulamiento: Todos los atributos son privados para proteger la integridad de los datos y solo son accesibles mediante métodos específicos. Esto ayuda a prevenir modificaciones no autorizadas y garantiza la consistencia de los datos.
+
+•	Flexibilidad y Claridad: La estructura clara y los nombres descriptivos de los métodos facilitan el uso de esta clase en otras partes del sistema, como las interfaces de gestión de préstamos y las operaciones de reporte.
+
+Uso Típico
+La clase Lendings se utiliza ampliamente en el sistema para diversas operaciones relacionadas con los préstamos de libros:
+1. Registro de Préstamos: Al registrar un nuevo préstamo, se crea una instancia de Lendings y se llena con la información pertinente.
+2. Gestión de Devoluciones: Al gestionar la devolución de libros, se actualiza el atributo date_return para reflejar la fecha en que el libro ha sido devuelto.
+3. Consulta de Préstamos: Para consultas específicas sobre préstamos activos o históricos, los métodos getters proporcionan una manera fácil de acceder a la información necesaria.
+
+# Clase Users
+La clase Users es un modelo crucial para representar los usuarios en nuestro sistema, como parte de una aplicación que requiere manejar datos personales y relacionados con sanciones. A continuación, detallo cada uno de los atributos y métodos de esta clase:
+
+Atributos
+
+•	id: Identificador único para cada usuario en la base de datos.
+
+•	name: Nombre del usuario.
+
+•	last_name_p: Apellido paterno del usuario.
+
+•	last_name_m: Apellido materno del usuario.
+
+•	domicilio: Dirección domiciliaria del usuario.
+
+•	tel: Número de teléfono del usuario.
+
+•	sanctions: Cantidad de sanciones que ha acumulado el usuario.
+
+•	sanc_money: Monto monetario total debido a sanciones.
+
+Métodos de Acceso y Modificación (Getters y Setters)
+Cada atributo tiene un método set para establecer su valor y un método get para obtener su valor, permitiendo manipular los datos de forma controlada y segura:
+•	setId(int id), getId(): Establece y recupera el ID del usuario.
+
+•	setName(String name), getName(): Asigna y obtiene el nombre del usuario.
+
+•	setLast_name_p(String last_name_p), getLast_name_p(): Configura y devuelve el apellido paterno.
+
+•	setLast_name_m(String last_name_m), getLast_name_m(): Configura y devuelve el apellido materno.
+
+•	setDomicilio(String domicilio), getDomicilio(): Establece y recupera la dirección del usuario.
+
+•	setTel(String tel), getTel(): Establece y obtiene el número de teléfono.
+
+•	setSanctions(int sanctions), getSanctions(): Configura y devuelve el número de sanciones.
+
+•	setSanc_money(int sanc_money), getSanc_money(): Configura y devuelve el total monetario de las sanciones.
+
+Consideraciones de Diseño
+•	Encapsulamiento: Todos los atributos son privados, accesibles solo a través de métodos getters y setters, lo que protege la integridad de los datos.
+
+•	Flexibilidad y mantenimiento: La clase está diseñada para ser fácilmente mantenible y extensible, permitiendo cambios futuros en la estructura de datos sin afectar otras partes del sistema.
+
+Uso Típico
+La clase Users se utiliza en diversas partes del sistema para:
+1. Registro y gestión de usuarios: Crear y actualizar registros de usuarios en la base de datos.
+2. Consulta de información: Recuperar datos específicos del usuario para diversos propósitos, como contacto o gestión de sanciones.
+3. Implementación de sanciones: Administrar y registrar las sanciones impuestas a los usuarios, asegurando que se mantenga un registro adecuado de las mismas.
+
