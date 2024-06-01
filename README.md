@@ -441,3 +441,132 @@ Consideraciones de Implementación
 1. Interacción con la base de datos: Utiliza DAOBooksImpl para todas las operaciones de la base de datos, asegurando que la lógica de acceso a datos está separada de la lógica de la interfaz de usuario.
 2. Validación de entrada: En bookSearchKeyTyped, se asegura que sólo se puedan introducir caracteres numéricos, ideal para sistemas donde el ID del libro es numérico.
 
+# Clase Lendings
+La clase Lendings gestiona la interfaz y la lógica necesaria para el proceso de préstamo de libros en nuestra aplicación. Está diseñada para interactuar con varios componentes de la aplicación, incluyendo el acceso a datos a través de DAOs y la generación de documentos PDF.
+
+Inicialización y Configuración
+En el constructor Lendings(), inicializamos los componentes de la interfaz gráfica y configuramos los estilos visuales iniciales, además de ocultar ciertas etiquetas que sólo deben mostrarse bajo condiciones específicas:
+
+•	InitStyles(): Establece los estilos visuales para los componentes, como colores y fuentes.
+
+•	setVisibleLabels(boolean visible): Controla la visibilidad de las etiquetas de detalles del libro para mostrarlas solo cuando sea necesario.
+
+Componentes de la Interfaz
+La interfaz gráfica incluye campos de texto para ingresar el folio del usuario y el ID del libro, etiquetas para mostrar información del libro seleccionado, y botones para realizar acciones como "Prestar". También utiliza un panel (jPanel1) para organizar visualmente los componentes relacionados con los detalles del libro.
+Eventos y Funcionalidad
+
+•	buttonActionPerformed: Este método maneja la lógica cuando se presiona el botón de préstamo. Incluye validaciones de entrada, comprobación de la existencia y disponibilidad del libro y del usuario, y, si todo es correcto, procesa el préstamo del libro.
+Integración con el Backend
+
+•	DAOs: Utiliza DAOBooksImpl, DAOUsersImpl, y DAOLendingsImpl para interactuar con la base de datos y manejar la lógica de negocio relacionada con los libros, usuarios, y préstamos.
+
+•	Generación de PDF: Utiliza PDFBox para generar un reporte en formato PDF que resume los detalles del préstamo.
+
+•	Envío de Correos: Configura y envía un correo electrónico con detalles del préstamo adjuntando el reporte en PDF generado.
+
+Generación y Envío de PDF
+El método crearPdf() genera un documento PDF detallando el préstamo y las reglas asociadas. Luego, sendEmail() configura y envía este documento como un adjunto por correo electrónico, utilizando propiedades SMTP para la conexión.
+
+Validaciones y Manejo de Errores
+Las validaciones aseguran que solo se ingresen números en los campos del folio y ID del libro, y que ambos sean válidos y existan en la base de datos. También verifica que haya disponibilidad del libro seleccionado antes de permitir el préstamo.
+
+# Clase Principal
+La clase Principal actúa como un panel de bienvenida para nuestra aplicación, ofreciendo una interfaz inicial que muestra información útil sobre las funciones del sistema de gestión de la biblioteca. Aquí está la descripción detallada de cómo hemos estructurado esta clase y qué hace cada parte del código:
+
+Constructor y Métodos Iniciales
+
+En el constructor Principal(), llamamos a dos métodos fundamentales que configuran el panel:
+
+•	initComponents(): Este método generado por el IDE (NetBeans) inicializa todos los componentes de la interfaz gráfica. Define el layout del panel, etiquetas, y otros componentes visuales. Está marcado para no ser modificado manualmente para evitar conflictos con el diseñador de formularios del IDE.
+•	InitStyles(): Configura los estilos visuales para las etiquetas, ajustando propiedades como la fuente y el color. Esto asegura que el panel tenga un aspecto coherente y profesional.
+Configuración de Estilo Visual
+El método InitStyles() establece los estilos para las etiquetas dentro del panel. Utiliza propiedades de FlatLaf para definir clases de estilo y colores, lo que facilita la consistencia visual en toda la aplicación.
+
+Descripción y Funcionalidades del Sistema
+Dentro del panel Principal, varias etiquetas (jLabel2 hasta jLabel11) describen las características y funciones del sistema de gestión de la biblioteca, tales como:
+
+•	Gestión de préstamos y devoluciones.
+
+•	Registro y edición de usuarios y libros.
+
+•	Eliminación de registros.
+
+•	Generación de gráficos y envío de correos electrónicos con fichas de trámite.
+
+Componentes de la Interfaz
+
+•	bg: Es el panel principal que contiene todos los otros componentes.
+
+•	image: Una etiqueta que muestra una imagen decorativa o representativa, cargada desde recursos internos.
+
+•	Etiquetas de texto (jLabel1 a jLabel11): Proporcionan información sobre las funcionalidades del sistema y orientaciones generales.
+
+Layout y Presentación
+
+La disposición de los componentes se maneja a través de GroupLayout, que es flexible y potente para crear interfaces complejas. Este layout permite posicionar de manera precisa cada componente en el panel.
+Uso del Panel Principal
+Este panel es la primera pantalla que los usuarios ven al iniciar la aplicación. Proporciona una introducción clara a lo que pueden hacer dentro del sistema, orientándolos sobre cómo navegar y qué esperar de las diferentes funcionalidades disponibles.
+
+
+# Clase Reports
+La clase Reports es un panel que muestra informes relacionados con los préstamos de libros en la biblioteca. Aquí está la descripción detallada de su estructura y funcionalidad:
+Constructor y Métodos Iniciales
+El constructor Reports() inicializa el panel y carga los préstamos de libros al mismo tiempo.
+
+•	initComponents(): Este método generado por el IDE (NetBeans) inicializa todos los componentes de la interfaz gráfica, incluyendo etiquetas, botones y tablas. Está marcado para no ser modificado manualmente para evitar conflictos con el diseñador de formularios del IDE.
+
+•	InitStyles(): Configura los estilos visuales para el título del panel.
+
+•	LoadLendings(): Carga los préstamos de libros desde la base de datos y los muestra en la tabla.
+
+Carga de Préstamos
+Este método carga los préstamos de libros desde la base de datos utilizando la implementación del DAO DAOLendingsImpl. Luego, actualiza la tabla para mostrar los préstamos.
+
+Componentes de la Interfaz
+•	bg: Es el panel principal que contiene todos los otros componentes.
+
+•	title: El título del panel que indica que se trata de informes.
+
+•	jButton2: Un botón que permite actualizar los informes.
+
+•	jTable1: Una tabla que muestra los préstamos de libros, incluyendo información sobre el ID del usuario, el ID del libro, la fecha de salida y la fecha de entrega.
+
+Uso del Panel Reports
+Este panel proporciona una manera fácil para que los usuarios vean los préstamos de libros en la biblioteca. Pueden actualizar los informes con un solo clic del botón "Actualizar", lo que les permite mantenerse al día con la información más reciente sobre los préstamos.
+
+# Clase Returns
+La clase Returns en tu paquete de vistas gestiona la interfaz para la devolución de libros en la biblioteca, asegurando que cada transacción se registre adecuadamente y aplicando sanciones si es necesario. Aquí te detallo cómo está organizada y sus principales funcionalidades:
+
+Constructor y Métodos Iniciales
+En el constructor Returns(), se inicializan los componentes y se configuran los estilos iniciales, además de ocultar ciertas etiquetas hasta que sean necesarias.
+
+•	InitStyles(): Establece los estilos visuales para los componentes, como colores y fuentes.
+
+•	setVisibleLabels(boolean visible): Controla la visibilidad de las etiquetas de detalles del libro para mostrarlas solo cuando se verifica que el libro debe ser devuelto.
+
+Componentes de la Interfaz
+
+•	Etiquetas y Texto: Muestra la información relevante sobre los libros y usuarios. Los detalles del libro devuelto y del usuario son visualizados solo si el préstamo es verificado.
+
+•	jPanel1: Agrupa visualmente los componentes relacionados con los detalles del libro.
+
+•	Botones (button): Permiten ejecutar la devolución del libro.
+
+Funcionalidad de Devolución
+El botón "Devolver" inicia el proceso de devolución del libro:
+
+•	Validación de Entradas: Verifica que los campos del folio del usuario y el ID del libro no estén vacíos y sean numéricos.
+
+•	Obtención y Verificación de Datos: Utiliza los DAOs para verificar la existencia del usuario y del libro, así como la validez del préstamo.
+
+•	Cálculo de Sanciones: Si el libro se devuelve tarde, se calculan las sanciones basadas en los días de retraso y se actualizan los registros del usuario.
+
+Gestión de Sanciones
+Si un libro se devuelve con retraso, se aplican sanciones monetarias y de registro, utilizando los valores predefinidos para calcular el total debido.
+
+Visualización de Datos
+•	setVisibleLabels(true): Muestra los detalles del libro si el préstamo está confirmado y listo para ser devuelto.
+
+Uso y Funcionamiento
+Esta clase es esencial para el módulo de gestión de la biblioteca, proporcionando una interfaz clara y funcional para las devoluciones. Ayuda a mantener un registro preciso de los movimientos de los libros y asegura que las políticas de la biblioteca sean respetadas mediante la aplicación de sanciones cuando sea necesario.
+
