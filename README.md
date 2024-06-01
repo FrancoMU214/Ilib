@@ -570,3 +570,80 @@ Visualización de Datos
 Uso y Funcionamiento
 Esta clase es esencial para el módulo de gestión de la biblioteca, proporcionando una interfaz clara y funcional para las devoluciones. Ayuda a mantener un registro preciso de los movimientos de los libros y asegura que las políticas de la biblioteca sean respetadas mediante la aplicación de sanciones cuando sea necesario.
 
+# Clase UpUsers
+La clase UpUsers se utiliza para gestionar el registro y edición de usuarios en el sistema de una biblioteca. Proporciona una interfaz de usuario para introducir y modificar información de usuarios.
+Constructores
+
+1.	Constructor Predeterminado (UpUsers()): Utilizado para registrar un nuevo usuario.
+2.	Constructor de Edición (UpUsers(com.mycompany.models.Users user)): Utilizado para editar un usuario existente. Recibe un objeto Users como parámetro con la información del usuario a editar.
+
+Métodos y Funcionalidades
+
+•	InitStyles(): Establece los estilos visuales de los componentes y carga los datos del usuario en los campos si está en modo de edición. Los placeholders de los campos de texto también se establecen aquí.
+
+•	buttonActionPerformed(evt): Maneja la lógica para el botón de "Registrar" o "Guardar". Realiza validaciones de los campos y, dependiendo de si es un registro o edición, llama al método correspondiente del DAOUsers para registrar o modificar el usuario en la base de datos.
+
+Componentes UI
+
+•	Campos de Texto (JTextField): Para ingresar el nombre, apellidos, domicilio, y correo electrónico del usuario.
+
+•	Botón (JButton): Para enviar la información del formulario a la base de datos. El texto del botón cambia dependiendo de si estás registrando un nuevo usuario o editando uno existente.
+
+•	Etiquetas (JLabel): Indican qué información debe ser introducida en cada campo de texto.
+
+Validaciones
+Se realizan validaciones para asegurar que todos los campos estén llenos y que el correo electrónico tenga un dominio conocido. Además, se genera un código de verificación enviado por correo electrónico para validar la identidad del usuario.
+
+Flujo de Trabajo
+
+•	Para nuevos usuarios: El usuario llena los campos y presiona "Registrar". Si las validaciones son correctas, el usuario se añade a la base de datos.
+
+•	Para editar usuarios: Los datos del usuario se cargan en los campos para que el usuario pueda modificarlos. Después de realizar los cambios y presionar "Guardar", si las validaciones son correctas, los cambios se guardan en la base de datos.
+
+Uso y Funcionamiento
+1. Esta clase es crucial para la gestión de usuarios en la biblioteca, permitiendo a los administradores mantener un control eficiente y efectivo sobre la información de los usuarios, facilitando tanto la incorporación de nuevos usuarios como la actualización de los existentes en el sistema. 
+
+# Clase Users
+La clase Users en Java se utiliza para gestionar la visualización y manipulación de usuarios en una interfaz de biblioteca. Permite buscar, agregar, editar y eliminar usuarios a través de una interfaz gráfica de usuario.
+
+Funciones y Características
+
+•	Visualización de Usuarios: Muestra una lista de usuarios en una tabla (jTable1), incluyendo ID, nombre, apellidos, domicilio y correo electrónico.
+
+•	Buscar Usuarios: Permite buscar usuarios por nombre a través de un campo de texto (userSearch).
+
+•	Agregar Nuevo Usuario: Abre un formulario para registrar un nuevo usuario.
+
+•	Editar Usuario Existente: Permite modificar la información de un usuario seleccionado.
+
+•	Eliminar Usuario: Elimina uno o más usuarios seleccionados de la base de datos.
+
+Métodos Principales
+
+•	InitStyles(): Configura los estilos visuales iniciales de los componentes de la interfaz.
+
+•	LoadUsers(): Carga y muestra todos los usuarios en la tabla al iniciar la clase.
+
+•	buttonActionPerformed Eventos: Gestiona las acciones de los botones para agregar, editar y eliminar usuarios.
+Componentes UI
+
+•	jTable1: Una tabla que muestra la lista de usuarios.
+
+•	userSearch: Un campo de texto para introducir el nombre del usuario a buscar.
+
+•	searchButton: Botón para iniciar la búsqueda.
+
+•	addButton, editButton, deleteButton: Botones para agregar, editar y eliminar usuarios, respectivamente.
+Interacción con el Backend
+
+•	Utiliza la interfaz DAOUsers para interactuar con la base de datos y realizar operaciones CRUD (crear, leer, actualizar, eliminar) sobre la tabla de usuarios.
+
+Flujo de Trabajo
+1.	Carga de Usuarios: Al iniciar la clase, se cargan todos los usuarios disponibles en la base de datos y se muestran en la tabla.
+2.	Buscar Usuarios: El usuario puede buscar específicamente por nombre usando el campo userSearch y el botón searchButton.
+3.	Agregar Usuario: Al hacer clic en addButton, se abre el formulario UpUsers para ingresar los datos de un nuevo usuario.
+4.	Editar Usuario: Seleccionando un usuario de la lista y haciendo clic en editButton, se carga la información del usuario en UpUsers para su edición.
+5.	Eliminar Usuario: Se pueden seleccionar uno o más usuarios y eliminarlos usando el deleteButton.
+
+Uso y Funcionamiento
+Esta clase es esencial para la gestión de usuarios dentro del sistema de la biblioteca, proporcionando una interfaz fácil de usar para realizar todas las operaciones necesarias sobre los datos de los usuarios, lo que ayuda a mantener actualizada la información relevante y asegura el buen funcionamiento del sistema de gestión de la biblioteca.
