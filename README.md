@@ -686,10 +686,18 @@ Franco Matias Uziel-Estudiante ITO - (Contacto: cuentafranco214@gmail.com)
 # AGRADECIMIENTO
 1. Principalmente a los perritos(luka, leica) y periquito tuntun que estuvieron despiertos con nosotros todas las noches en las que se avanzaba con el proyecto.
 
-2. A nosostros por acabar con el proyecto.
+2. A nosostros por acabar con el proyecto, antes de que el proyecto acabara con nostros.
 
 3. A Dios.
 
 4. A Adrian marcelo y la mole por sus videos en youtube (radar y hermanos de leche) que nos mantuvieron entretenidos esas tardes en donde no compilaban los codigos.
 
-5. A ti por creer en nosotros
+5. A mis intimos amigos Julion y Alfredito por 'Me da verguenza' y 'Volvera', iconicos PDALovers.
+
+6. A gepetto, sin el cual este proyecto no veria la luz, asi tambien a mi compadre Toño.
+
+7.A ella por por darme animos siempre, la luna esta hermosa hoy no crees Evy?
+
+8. A ti por creer en nosotros.
+
+Finalment m'agradaria demanar-te perdó míster, sempre vas donar el millor per al club i per a l'equip, llastimosament les formes van ser doloroses per ambdues parts, et desitjo el millor avui i sempre llegenda, aquesta serà casa teva per a l'eternitat, els carrers mai oblidaran a Xavier Hernández Creus, 6ràcies <3
