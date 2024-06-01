@@ -696,7 +696,7 @@ Franco Matias Uziel-Estudiante ITO - (Contacto: cuentafranco214@gmail.com)
 
 6. A gepetto, sin el cual este proyecto no veria la luz, asi tambien a mi compadre Toño.
 
-  7.A ella por darme animos siempre, la luna esta hermosa hoy no crees Evy?
+7. A ella por darme animos siempre.
 
 8. A ti por creer en nosotros.
 
