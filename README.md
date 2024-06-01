@@ -646,4 +646,5 @@ Flujo de Trabajo
 5.	Eliminar Usuario: Se pueden seleccionar uno o más usuarios y eliminarlos usando el deleteButton.
 
 Uso y Funcionamiento
+
 Esta clase es esencial para la gestión de usuarios dentro del sistema de la biblioteca, proporcionando una interfaz fácil de usar para realizar todas las operaciones necesarias sobre los datos de los usuarios, lo que ayuda a mantener actualizada la información relevante y asegura el buen funcionamiento del sistema de gestión de la biblioteca.
