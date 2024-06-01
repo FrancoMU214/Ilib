@@ -648,3 +648,48 @@ Flujo de Trabajo
 Uso y Funcionamiento
 
 Esta clase es esencial para la gestión de usuarios dentro del sistema de la biblioteca, proporcionando una interfaz fácil de usar para realizar todas las operaciones necesarias sobre los datos de los usuarios, lo que ayuda a mantener actualizada la información relevante y asegura el buen funcionamiento del sistema de gestión de la biblioteca.
+
+# INSTALACION
+ 1. Descraga el archivo zip
+![trrdfdf](https://github.com/FrancoMU214/Componente/assets/168498647/2a793a83-0244-467a-a65c-d69f93155c3d)
+
+ 2. Importa el proyecto en tu IDE preferido (NeatBeans o VS code).
+ 3. Asegurese de que el proyecto se compila sin errores para crear el .jar segun la version de java que disponga.
+
+# USO
+1. Verificaremos que la descarga se haya realizado exitosamente
+![1](https://github.com/FrancoMU214/Componente/assets/168498647/d80cd365-740e-4b9c-9a53-41d8303db18c)
+2. Extraeremos nuestro proyecto para obtener la carpeta necesaria
+![Reproductor multimedia 29_04_2024 10_50_21 p  m](https://github.com/FrancoMU214/Componente/assets/168498647/9334b1eb-5754-4e34-ae04-62da5c88d985)
+3. Ahora crearemos abriremos nuestro proyecto
+![Reproductor multimedia 29_04_2024 10_50_39 p  m](https://github.com/FrancoMU214/Componente/assets/168498647/0ba6b7c0-ba68-4e8f-a59f-ec34d95da6c5)
+4. Ahora seleccioanaremos el proyecto componentes
+![Reproductor multimedia 29_04_2024 10_50_44 p  m](https://github.com/FrancoMU214/Componente/assets/168498647/bc4088ca-40eb-432c-b7ae-a3aa3ef0061c)
+5. y ya, ahora podremos hacer uso del proyecto
+
+# FUNCIONAMIENTO
+Para cualquier duda pueden consultar el siguiente enlace que proporciona los pasos mas detallados: 
+
+# CONTRIBUIR
+En caso de querer contribuir a este proyecto, por favor sigue los siguientes pasos: https://youtu.be/Zc7Rmykzkn4
+
+1. Haz un fork del repositorio.
+2. Crea una nueva rama para tu característica o corrección de errores.
+3. Haz tus cambios.
+3. Envía un pull request.
+
+# AUTORES
+Jonathan Eliezer Martinez Miguel-Estudiante ITO - (Contacto: jonmartinez902@gmail.com)
+
+Franco Matias Uziel-Estudiante ITO - (Contacto: cuentafranco214@gmail.com)
+
+# AGRADECIMIENTO
+1. Principalmente a los perritos(luka, leica) y periquito tuntun que estuvieron despiertos con nosotros todas las noches en las que se avanzaba con el proyecto.
+
+2. A nosostros por acabar con el proyecto.
+
+3. A Dios.
+
+4. A Adrian marcelo y la mole por sus videos en youtube (radar y hermanos de leche) que nos mantuvieron entretenidos esas tardes en donde no compilaban los codigos.
+
+5. A ti por creer en nosotros
